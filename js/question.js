@@ -8,8 +8,12 @@ var java_desc = ["자바는 전체 소스 코드를 컴파일한 후 바이트�
                  "Weak Generational Hypothesis 에 의하면 새로 생성된 객체는 금방 사용되지 않는 상태가 되고, 오래된 객체에서 새로 생성된 객체로의 참조는 거의 일어나지 않는다. <br> Heap 메모리에서 생성된 후 참조되지 않는 객체를 찾아 제거하고 참조되는 객체들을 묶어 메모리를 효율적으로 관리한다.",
                  "Checked Exception 은 예외 처리가 필수이며, 처리하지 않으면 컴파일되지 않는다. <br> ex) JVM 이 외부와 통신할 때(네트워크, 파일 시스템)"]
 
-var web_ans = ["interpret", "", "", ""];
-var web_desc = ["자바는 전체 소스 코드를 컴파일한 후 바이트코드로 변환하는 컴파일러 언어이다.", "", "", ""]
+var web_ans = ["4", "5", "3", "2"];
+var web_desc = ["4번은 하이브리드 앱에 대한 설명이다.",
+                "HTML 파서가 HTML 구문과 어휘를 분석하여 DOM 트리 생성하고, CSS 파서가 Style 규칙을 생성한다. 이후 이 둘을 어테치먼트하여 렌더 트리를 생성하고, 렌더 트리를 배치하여 UI백엔드가 렌더 트리의 노드들을 돌며 형상을 그린다", 
+                "SSR 방식은 모든 요청에 대해 서버가 리소스를 전달받아 해석하여 화면에 렌더링해주기 때문에 요청 데이터가 많을수록 성능 문제(자원 낭비, 불필요한 트래픽)가 발생한다. <br/>\
+                 반면, CSR 방식은 사용자의 행동에 따라 필요한 부분만 다시 읽어오므로 빠른 인터랙션이 가능하다.", 
+                "MVC 패턴은 코드의 재사용에 유용하며, 사용자 인터페이스와 응용 프로그램 개발에 소요되는 시간을 줄여주는 효과적인 설계 방식이다."]
 
 var cs_ans = ["interpret", "", "", ""];
 var cs_desc = ["자바는 전체 소스 코드를 컴파일한 후 바이트코드로 변환하는 컴파일러 언어이다.", "", "", ""]
@@ -51,6 +55,8 @@ function showAnswer(category, num){
 
     document.getElementById(resultSelector).style.display="inline";
     document.getElementById(descSelector).style.display="inline";
+
+    console.log(received + " " + expected);
 
     if(received === expected){
         document.getElementById(resultSelector).style.color="blue";
