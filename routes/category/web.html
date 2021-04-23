@@ -14,10 +14,20 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
+
+  <!-- Include html files -->
+  <script>
+    $(document).ready(() => {
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
+    });
+  </script>
 
 </head>
 
@@ -26,54 +36,85 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">면접 주제</div>
-      <div class="list-group list-group-flush">
-        <a href="java.html" class="list-group-item list-group-item-action bg-light">Java</a>
-        <a href="web.html" class="list-group-item list-group-item-action bg-light">Web</a>
-        <a href="cs.html" class="list-group-item list-group-item-action bg-light">Computer Science</a>
-        <a href="ps.html" class="list-group-item list-group-item-action bg-light">Problem Solving</a>
-      </div>
-    </div>
+    <div id="sidebar"></div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.nowwatersblog.com">블로그</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                더 보기
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">맞춘 문제</a>
-                <a class="dropdown-item" href="#">틀린 문제</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">제작자 정보</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <!-- Navigation -->
+      <div id="nav"></div>
 
       <div class="container-fluid">
-        <div class="alert alert-dark" >
+        <div class="alert alert-warning" >
           <span style="font-size: 40px;">Web</span>
         </div>
             <hr>
+            <div class="question">
+              <h4>1. 다음 중 Web 의 특징이 <span style="text-decoration: underline;">아닌</span> 것은?</h4>
+              <hr>
+                <input type="radio" name="web1" value="1" >&nbsp;&nbsp;&nbsp;Http 프로토콜과 Https 프로토콜이 존재한다.</input><br/>
+                <input type="radio" name="web1" value="2">&nbsp;&nbsp;&nbsp;웹만으로 프로그램을 구현할 수 있다.</input><br/>
+                <input type="radio" name="web1" value="3">&nbsp;&nbsp;&nbsp;WEB 3.0 에서는 시멘틱 기술을 이용한다.</input><br/>
+                <input type="radio" name="web1" value="4">&nbsp;&nbsp;&nbsp;HTML 기반으로 제작하여 최종 앱 배포 시 아이폰, 안드로이드에서 패키징을 처리한다.</input><br/>
+                <input type="radio" name="web1" value="5">&nbsp;&nbsp;&nbsp;쿠키는 클라이언트에, 세션은 서버에 저장된다.</input><br/>
+                <div class="questionResult" id="webWrap1">
+                  <span id="webRes1"></span><br/> 
+                  <span id="webDesc1"></span>
+                </div>
+                <input type="button" id="web1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('web', 1)";></input>
+                <input type="button" id="web1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('web', 1)";></input>
+
+              <hr>
+              <h4>2. 다음 중 브라우저의 동작 순서로 올바른 것은?</h4>
+              <hr>
+                <input type="radio" name="web2" value="1">&nbsp;&nbsp;&nbsp;DOM 트리 생성 - Style 규칙 생성 - 렌더 트리 생성 - 렌더 트리 그리기 - 렌더 트리 배치</input><br/>
+                <input type="radio" name="web2" value="2">&nbsp;&nbsp;&nbsp;렌더 트리 배치 - 렌더 트리 생성 - DOM 트리 생성 - Style 규칙 생성 - 렌더 트리 그리기</input><br/>
+                <input type="radio" name="web2" value="3">&nbsp;&nbsp;&nbsp;렌더 트리 생성 - 렌더 트리 배치 - 렌더 트리 그리기 - DOM 트리 생성 - Style 규칙 생성</input><br/>
+                <input type="radio" name="web2" value="4">&nbsp;&nbsp;&nbsp;Style 규칙 생성 - DOM 트리 생성 - 렌더 트리 배치 - 렌더 트리 생성 - 렌더 트리 그리기</input><br/>
+                <input type="radio" name="web2" value="5">&nbsp;&nbsp;&nbsp;DOM 트리 생성 - Style 규칙 생성 - 렌더 트리 생성 - 렌더 트리 배치 - 렌더 트리 그리기</input><br/>
+                <div class="questionResult" id="webWrap2">
+                  <span id="webRes2"></span><br/> 
+                  <span id="webDesc2"></span>
+                </div>
+                <input type="button" id="web2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('web', 2)";></input>
+                <input type="button" id="web2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('web', 2)";></input>
+
+              <hr>
+                <h4>3. 다음 중 렌더링 방식과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
+              <hr>
+                <input type="radio" name="web3" value="1">&nbsp;&nbsp;&nbsp;SSR은 서버 사이드에서 렌더링한 HTML을 클라이언트에게 전달해준다.</input><br/>
+                <input type="radio" name="web3" value="2">&nbsp;&nbsp;&nbsp;CSR은 클라이언트 사이드에서 뷰 렌더링을 담당한다.</input><br/>
+                <input type="radio" name="web3" value="3">&nbsp;&nbsp;&nbsp;CSR 방식은 인터랙션이 많은 환경에서 비효율적이다.</input><br/>
+                <input type="radio" name="web3" value="4">&nbsp;&nbsp;&nbsp;SPA는 최초 한 번만 페이지 전체를 로딩하고 이후 데이터만 변경하여 사용할 수 있는 어플리케이션이다.</input><br/>
+                <input type="radio" name="web3" value="5">&nbsp;&nbsp;&nbsp;SPA는 CSR 방식을 사용한다.</input><br/>
+                <div class="questionResult" id="webWrap3">
+                  <span id="webRes3"></span><br/> 
+                  <span id="webDesc3"></span>
+                </div>
+                <input type="button" id="web3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('web', 3)";></input>
+                <input type="button" id="web3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('web', 3)";></input>
+
+              <hr>
+                <h4>4. 다음 중 MVC 패턴에 대한 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
+              <hr>
+                <input type="radio" name="web4" value="1">&nbsp;&nbsp;&nbsp;Model, View, Controller 로 구성된다.</input><br/>
+                <input type="radio" name="web4" value="2">&nbsp;&nbsp;&nbsp;코드를 재사용할 수 없는 단점이 있다.</input><br/>
+                <input type="radio" name="web4" value="3">&nbsp;&nbsp;&nbsp;모델은 핵심 비즈니스 로직을 담당해 DB를 관리하는 부분이다.</input><br/>
+                <input type="radio" name="web4" value="4">&nbsp;&nbsp;&nbsp;뷰는 사용자에게 보여주는 화면이다.</input><br/>
+                <input type="radio" name="web4" value="5">&nbsp;&nbsp;&nbsp;컨트롤러는 모델과 뷰 사이에서 정보 교환을 할 수 있도록 연결해준다.</input><br/>
+                <div class="questionResult" id="webWrap4">
+                  <span id="webRes4"></span><br/> 
+                  <span id="webDesc4"></span>
+                </div>
+                <input type="button" id="web4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('web', 4)";></input>
+                <input type="button" id="web4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('web', 4)";></input>
+                
+                <hr>
+                <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>
+              <br>
+              <a href="#" style="margin-left: 360px;"><input type="button" class="btn btn-primary btn-lg btn-block" value="맨 위로 올라가기"/></a>
+              <br>
+          </div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -82,8 +123,8 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>

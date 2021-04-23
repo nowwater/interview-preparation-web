@@ -14,11 +14,21 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
 
+  <!-- Include html files -->
+  <script>
+    $(document).ready(() => {
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
+    });
+  </script>
+  
 </head>
 
 <body>
@@ -26,53 +36,105 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">면접 주제</div>
-      <div class="list-group list-group-flush">
-        <a href="java.html" class="list-group-item list-group-item-action bg-light">Java</a>
-        <a href="web.html" class="list-group-item list-group-item-action bg-light">Web</a>
-        <a href="cs.html" class="list-group-item list-group-item-action bg-light">Computer Science</a>
-        <a href="ps.html" class="list-group-item list-group-item-action bg-light">Problem Solving</a>
-      </div>
-    </div>
+    <div id="sidebar"></div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.nowwatersblog.com">블로그</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                더 보기
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">순위 보기</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">제작자 정보</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <!-- Navigation -->
+      <div id="nav"></div>
 
       <div class="container-fluid">
-        <div class="alert alert-primary" >
+        <div class="alert alert-danger" >
           <span style="font-size: 40px;">Computer Science</span>
         </div>
             <hr>
+            <div class="question">
+              <h4>1. 다음 설명에 해당하는 것은?</h4>
+              <br/>
+              <div class="card">
+                <div class="card-body">
+                  <li>프로세스가 자원을 얻지 못해서 다음 처리를 진행하지 못하는 상태이다.</li> <br> 
+                  <li>시스템적으로 한정된 자원을 여러 곳에서 사용하려고 할 때 발생한다.</li> <br>
+                  <li>발생하기 위한 조건이 존재하며 이중 하나라도 만족되지 않으면 이 상황이 발생하지 않는다.</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs1" rows="3"></textarea>
+                <div class="questionResult" id="csWrap1">
+                  <span id="csRes1"></span><br/> 
+                  <span id="csDesc1"></span>
+                </div>
+                <input type="button" id="cs1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 1)";></input>
+                <input type="button" id="cs1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 1)";></input>
+
+              <hr>
+              <h4>2. 다음 설명에 해당하는 페이지 교체 알고리즘은?</h4>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <li>최근에 사용하지 않은 페이지를 가장 먼저 내보내는 알고리즘</li> <br> 
+                  <li>사용하지 않은 페이지는 앞으로도 사용하지 않을 확률이 높다.</li> <br>
+                  <li>실제로 사용할 수 있는 페이지 교체 알고리즘 중에서 가장 좋은 방법 중의 하나이다.</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs2" rows="3" placeholder="OOO 알고리즘"></textarea>
+                <div class="questionResult" id="csWrap2">
+                  <span id="csRes2"></span><br/> 
+                  <span id="csDesc2"></span>
+                </div>
+                <input type="button" id="cs2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 2)";></input>
+                <input type="button" id="cs2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 2)";></input>
+
+              <hr>
+                <h4>3. 다음 설명에 해당하는 CPU 스케줄링 알고리즘은?</h4>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <li>각 프로세스에게 일정한 시간의 Time Quantum 만큼 CPU를 할당해주고, 각 프로세스는 돌아가며 주어진 시간동안 작업을 수행한다.</li> <br> 
+                  <li>Time Quantum이 너무 크면 FCFS 방식과 같아지고, 너무 작으면 Context Switching이 자주 발생하여 오버헤드가 증가한다.</li> <br>
+                  <li>CPU 스케줄링 외에도 다양한 스케줄링 방식에 적용될 수 있는 개념이다.</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs3" rows="3" placeholder="OOO 알고리즘"></textarea>
+                <div class="questionResult" id="csWrap3">
+                  <span id="csRes3"></span><br/> 
+                  <span id="csDesc3"></span>
+                </div>
+                <input type="button" id="cs3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 3)";></input>
+                <input type="button" id="cs3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 3)";></input>
+
+              <hr>
+                <h4>4. 다음 설명에 해당하는 용어의 이름은?</h4>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <li>데이터베이스의 상태를 변화시키기 위해 수행하는 하나의 논리적 작업 단위이다. </li> <br> 
+                  <li>ACID 특징을 갖는다.</li> <br>
+                  <li>OOOO 의 성공 여부로 Commit 또는 Rollback을 수행한다.</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs4" rows="3"></textarea>
+                <div class="questionResult" id="csWrap4">
+                  <span id="csRes4"></span><br/> 
+                  <span id="csDesc4"></span>
+                </div>
+                <input type="button" id="cs4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 4)";></input>
+                <input type="button" id="cs4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 4)";></input>
+                
+                <hr>
+                <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>
+              <br>
+              <a href="#" style="margin-left: 360px;"><input type="button" class="btn btn-primary btn-lg btn-block" value="맨 위로 올라가기"/></a>
+              <br>
+          </div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

@@ -14,10 +14,20 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
+
+  <!-- Include html files -->
+  <script>
+    $(document).ready(() => {
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
+    });
+  </script>
 
 </head>
 
@@ -25,54 +35,92 @@
 
   <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">면접 주제</div>
-      <div class="list-group list-group-flush">
-        <a href="java.html" class="list-group-item list-group-item-action bg-light">Java</a>
-        <a href="web.html" class="list-group-item list-group-item-action bg-light">Web</a>
-        <a href="cs.html" class="list-group-item list-group-item-action bg-light">Computer Science</a>
-        <a href="ps.html" class="list-group-item list-group-item-action bg-light">Problem Solving</a>
-      </div>
-    </div>
+  <!-- Sidebar -->
+    <div id="sidebar"></div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.nowwatersblog.com">블로그</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                더 보기
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">순위 보기</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">제작자 정보</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <!-- Navigation -->
+      <div id="nav"></div>
 
       <div class="container-fluid">
         <div class="alert alert-success" >
           <span style="font-size: 40px;">Problem Solving</span>
         </div>
             <hr>
+            <div class="question">
+              <h4>1. 다음의 설명에 해당하는 알고리즘은?</h4>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <li>그래프에서 노드 간 최단경로를 구하는 알고리즘이다.</li> <br> 
+                  <li>음의 간선이 없을 때 정상적으로 동작한다.</li> <br>
+                  <li>방문하지 않은 노드 중 최단 거리가 가장 짧은 노드를 선택한다.</li> <br>
+                  <li>해당 노드를 거쳐서 다른 노드로 가는 비용을 계산해 최단거리 테이블을 갱신한다.</li> <br>
+                  <li>if(distance[now] < dist) continue;</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="ps1" rows="3"></textarea>
+                <div class="questionResult" id="psWrap1">
+                  <span id="psRes1"></span><br/> 
+                  <span id="psDesc1"></span>
+                </div>
+                <input type="button" id="ps1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 1)";></input>
+                <input type="button" id="ps1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 1)";></input>
+
+              <hr>
+              <h4>2. 1번 알고리즘의 시간복잡도는?</h4>
+              <hr>
+              <textarea class="form-control" id="ps2" rows="3" placeholder="O(  ) 안의 수식을 입력, 정점의 개수 V, 간선의 개수 E"></textarea>
+                <div class="questionResult" id="psWrap2">
+                  <span id="psRes2"></span><br/> 
+                  <span id="psDesc2"></span>
+                </div>
+                <input type="button" id="ps2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 2)";></input>
+                <input type="button" id="ps2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 2)";></input>
+
+              <hr>
+                <h4>3. 다음의 설명에 해당하는 알고리즘은?</h4>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <li>방향 그래프의 모든 노드를 방향성에 거스르지 않도록 순서대로 나열한다.</li> <br> 
+                  <li>각 노드로 들어오는 간선의 개수인 진입차수가 0인 노드를 큐에 넣는다.</li> <br>
+                  <li>큐가 빌 때 까지 큐에서 원소를 꺼내 해당 노드에서 출발하는 간선을 그래프에서 제거한다.</li> <br>
+                  <li>새롭게 진입 차수가 0이 된 노드를 큐에 넣는다.</li> <br>
+                  <li>큐에서 빠져나간 순서가 구하고자 하는 결과가 되며, 중복 답안이 존재할 수 있다.</li>
+                </div>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="ps3" rows="3"></textarea>
+                <div class="questionResult" id="psWrap3">
+                  <span id="psRes3"></span><br/> 
+                  <span id="psDesc3"></span>
+                </div>
+                <input type="button" id="ps3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 3)";></input>
+                <input type="button" id="ps3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 3)";></input>
+
+              <hr>
+                <h4>4. 3번 알고리즘의 시간복잡도는?</h4>
+              <hr>
+              <textarea class="form-control" id="ps4" rows="3" placeholder="O(  ) 안의 수식을 입력, 정점의 개수 V, 간선의 개수 E"></textarea>
+                <div class="questionResult" id="psWrap4">
+                  <span id="psRes4"></span><br/> 
+                  <span id="psDesc4"></span>
+                </div>
+                <input type="button" id="ps4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 4)";></input>
+                <input type="button" id="ps4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 4)";></input>
+                
+                <hr>
+                <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>
+              <br>
+              <a href="#" style="margin-left: 360px;"><input type="button" class="btn btn-primary btn-lg btn-block" value="맨 위로 올라가기"/></a>
+              <br>
+          </div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -81,8 +129,8 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
