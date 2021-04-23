@@ -3,3 +3,9 @@
   padding: 15px;
   visibility: hidden;
 }
+
+#progress-splitter {
+  margin: 40px;
+  padding: 10px;
+  font-size: 30px;
+}
