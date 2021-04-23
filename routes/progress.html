@@ -3,114 +3,110 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>면접 준비 웹사이트_고급웹프로그래밍</title>
+    <title>면접 준비 웹사이트_고급웹프로그래밍</title>
 
-  <!-- JQuery -->
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- JQuery -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-  <!-- Bootstrap core CSS -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="/css/simple-sidebar.css" rel="stylesheet">
-  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
-  <script src="/js/question.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+    <script src="/js/question.js"></script>
 
 
-  <!-- Include html files -->
-  <script>
-    $(document).ready(() => {
-      $("#nav").load("/routes/component/navigator.html");
-      $("#sidebar").load("/routes/component/sidebar.html");
-    });
-  </script>
+    <!-- Include html files -->
+    <script>
+        $(document).ready(() => {
+            $("#nav").load("/routes/component/navigator.html");
+            $("#sidebar").load("/routes/component/sidebar.html");
+        });
+    </script>
 
 </head>
 
 <body>
 
-  <div class="d-flex" id="wrapper">
+    <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-    <div id="sidebar"></div>
+        <!-- Sidebar -->
+        <div id="sidebar"></div>
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
 
-      <!-- Navigation -->
-      <div id="nav"></div>
+            <!-- Navigation -->
+            <div id="nav"></div>
 
-    <div class="container-fluid">
-        <div class="alert alert-secondary" role="alert">
-            <span style="font-size: 40px;">문제 진행 상황</span>
-          </div>
+            <div class="container-fluid">
+                <div class="alert alert-secondary" role="alert">
+                    <span style="font-size: 40px;">문제 진행 상황</span>
+                </div>
 
-        <div id="progress-splitter">
-            <div>Java</div>
-            <div id="java"></div>
+                <div id="progress-splitter">
+                    <div>Java</div>
+                    <div id="java"></div>
+                </div>
+                <div id="progress-splitter">
+                    <div>Web</div>
+                    <div id="web"></div>
+                </div>
+                <div id="progress-splitter">
+                    <div>Computer Science</div>
+                    <div id="cs"></div>
+                </div>
+                <div id="progress-splitter">
+                    <div>Problem Solving</div>
+                    <div id="ps"></div>
+                </div>
+            </div>
         </div>
-        <div id="progress-splitter">
-            <div>Web</div>
-            <div id="web"></div>
-        </div>
-        <div id="progress-splitter">
-            <div>Computer Science</div>
-            <div id="cs"></div>
-        </div>
-        <div id="progress-splitter">
-            <div>Problem Solving</div>
-            <div id="ps"></div>
-        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
 
-  </div>
-  <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="/vendor/jquery/jquery.min.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
 
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
+    <!-- Fill progress bars -->
+    <script>
+        /* 카테고리별 진행상황 파악 */
+        var java_process = getProcess('java');
+        var web_process = getProcess('web');
+        var cs_process = getProcess('cs');
+        var ps_process = getProcess('ps');
 
-  <!-- Fill progress bars -->
-  <script>
-      var value = progress[0];
-      var progress_java = 
-      '<div class="progress">\
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' +
-            progress[1] + '%"></div></div>';
-      var progress_web = 
-      '<div class="progress">\
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' +
-            progress[2] + '"></div></div>';
-      var progress_cs = 
-      '<div class="progress">\
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' +
-            progress[3] + '"></div></div>';
-      var progress_ps = 
-      '<div class="progress">\
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' +
-            progress[4] + '"></div></div>';
+        /* 카테고리별 진행상황을 progressBar 로 변환해주는 태그 생성문 획득 */
+        var progress_java = getProgress(java_process, 'java');
+        var progress_web = getProgress(web_process, 'web');
+        var progress_cs = getProgress(cs_process, 'cs');
+        var progress_ps = getProgress(ps_process, 'ps');
 
-      document.getElementById("java").innerHTML = progress_java;
-      document.getElementById("web").innerHTML = progress_web;
-      document.getElementById("cs").innerHTML = progress_cs;
-      document.getElementById("ps").innerHTML = progress_ps;
-  </script>
+        console.log(progress_cs);
+
+        document.getElementById("java").innerHTML = progress_java;
+        document.getElementById("web").innerHTML = progress_web;
+        document.getElementById("cs").innerHTML = progress_cs;
+        document.getElementById("ps").innerHTML = progress_ps;
+    </script>
 </body>
 
 </html>
