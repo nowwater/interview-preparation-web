@@ -21,13 +21,13 @@
   <link href="../../css/hyunsu_stylesheet.css" rel="stylesheet">
   <script src="../../js/question.js"></script>
 
-  
-
   <script>
     $(document).ready(() => {
       $("#nav").load("../component/navigator.html");
+      $("#sidebar").load("../component/sidebar.html");
     });
   </script>
+
 </head>
 
 <body>
@@ -35,23 +35,16 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">면접 주제</div>
-      <div class="list-group list-group-flush">
-        <a href="java.html" class="list-group-item list-group-item-action bg-light">Java</a>
-        <a href="web.html" class="list-group-item list-group-item-action bg-light">Web</a>
-        <a href="cs.html" class="list-group-item list-group-item-action bg-light">Computer Science</a>
-        <a href="ps.html" class="list-group-item list-group-item-action bg-light">Problem Solving</a>
-      </div>
-    </div>
+    <div id="sidebar"></div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
+      <!-- Navigation -->
       <div id="nav"></div>
 
       <div class="container-fluid">
-        <div class="alert alert-info" >
+        <div class="alert alert-primary" >
           <span style="font-size: 40px;">Java</span>
         </div>
             <hr>
