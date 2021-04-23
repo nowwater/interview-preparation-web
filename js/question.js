@@ -1,7 +1,7 @@
 var correct = "정답입니다!";
 var inCorrect = "틀렸습니다!";
-var progress = [0, 0, 0, 0, 0];
 
+/* 문제의 대본 - 정답과 해설 */
 var java_ans = ["5", "1", "3", "4"];
 var java_desc = ["자바는 전체 소스 코드를 컴파일한 후 바이트코드로 변환하는 컴파일러 언어이다. 그리고 인터프리터에 의해 바이트 코드 명령어를 해석하고 실행한다.",
                  ".java -> .class -> 클래스 로더에 의해 JVM 메모리에 탑재 -> Execution Engine 에 의해 해석",
@@ -33,6 +33,8 @@ var ps_desc = ["다익스트라는 특정 노드에서 다른 노드로 가는 �
                "위상정렬은 그래프 노드간 순서를 고려하여 탐색하는 알고리즘이다.", 
                "차례대로 모든 노드를 확인하면서, 해당 노드에서 출발하는 간선을 차례대로 제거해나가기 때문에 O(V + E) 이다."]
 
+
+/* 주관식 문제의 정답을 표시해주는 함수 */
 function descriptiveAnswer(category, num){
     var selector = '#' + category + num;
     var wrapSelector = category + "Wrap" + num;
@@ -72,6 +74,8 @@ function descriptiveAnswer(category, num){
         document.getElementById(resultSelector).innerHTML=correct;
         document.getElementById(descSelector).style.color="blue";
         document.getElementById(descSelector).innerHTML=returnDesc;
+        /* 해결한 문제 체크 */
+        updateProgress(category, num);
     } else{
         document.getElementById(resultSelector).style.color="red";
         document.getElementById(resultSelector).innerHTML=inCorrect
@@ -86,6 +90,7 @@ function descriptiveAnswer(category, num){
     document.getElementById(toggle).style.display="block";
 }
 
+/* 객관식 문제의 정답을 표시해주는 함수 */
 function showAnswer(category, num){
     var wrapSelector = category + "Wrap" + num;
     var resultSelector = category + "Res" + num;
@@ -127,6 +132,8 @@ function showAnswer(category, num){
         document.getElementById(resultSelector).innerHTML=correct;
         document.getElementById(descSelector).style.color="blue";
         document.getElementById(descSelector).innerHTML=returnDesc;
+        /* 해결한 문제 체크 */
+        updateProgress(category, num);
     } else{
         document.getElementById(resultSelector).style.color="red";
         document.getElementById(resultSelector).innerHTML=inCorrect
@@ -140,6 +147,7 @@ function showAnswer(category, num){
     document.getElementById(toggle).style.display="block";
 }
 
+/* 정답을 가려주는 함수 */
 function hideAnswer(category, num){
     var question = category + num;
     var button = question + "_hide";
@@ -156,4 +164,38 @@ function hideAnswer(category, num){
 
     document.getElementById(button).style.display="none";
     document.getElementById(toggle).style.display="block";
+}
+
+/* 카테고리 별 해결한 문제의 비율 계산하는 함수 */
+function getProcess(category){
+    return localStorage.getItem(category).split(",")
+                .reduce((ac, cur, idx, arr) => {
+                    ac = Number(ac) + Number(cur);
+                    return ac;
+                });
+}
+
+/* 입력값에 따라 다른 색깔의 프로그레스 바를 만들어주는 태그 생성 함수 */
+function getProgress(process, category){
+    let type = '';
+
+    if(category == 'java') {
+        type = 'bg-info';
+    } else if(category == 'web') {
+        type = 'bg-warning';
+    } else if(category == 'cs') {
+        type = 'bg-danger';
+    } else if(category == 'ps') {
+        type = 'bg-success';
+    }
+    return '<div class="progress">\
+            <div class="progress-bar ' + type + ' progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' +
+            process + '%">' + process + '%</div>';
+}
+
+/* 정답을 맞췄을 경우 해당 카테고리의 state 업데이트 함수 */
+function updateProgress(category, num){
+    var arr = localStorage.getItem(category).split(",");
+    arr[num - 1] = 25;
+    localStorage[category] = arr;
 }
