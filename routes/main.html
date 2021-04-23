@@ -24,6 +24,11 @@
 
   <!-- Include html files -->
   <script>
+    window.localStorage['java'] = [0, 0, 0, 0];
+    window.localStorage['web'] = [0, 0, 0, 0];
+    window.localStorage['cs'] = [0, 0, 0, 0];
+    window.localStorage['ps'] = [0, 0, 0, 0];
+
     $(document).ready(() => {
       $("#nav").load("/routes/component/navigator.html");
       $("#sidebar").load("/routes/component/sidebar.html");
@@ -69,7 +74,5 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
-
 </body>
-
 </html>
