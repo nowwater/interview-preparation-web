@@ -14,18 +14,18 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
-  <link href="../../css/hyunsu_stylesheet.css" rel="stylesheet">
-  <script src="../../js/question.js"></script>
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
 
   <!-- Include html files -->
   <script>
     $(document).ready(() => {
-      $("#nav").load("../component/navigator.html");
-      $("#sidebar").load("../component/sidebar.html");
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
     });
   </script>
   
@@ -50,64 +50,84 @@
         </div>
             <hr>
             <div class="question">
-              <h4>1번. 다음 중 Java 의 특징이 <span style="text-decoration: underline;">아닌</span> 것은?</h4>
-              <hr>
-                <input type="radio" name="java1" value="1" >&nbsp;&nbsp;&nbsp;Call By Reference이다.</input><br/>
-                <input type="radio" name="java1" value="2">&nbsp;&nbsp;&nbsp;캐스팅할 수 있다.</input><br/>
-                <input type="radio" name="java1" value="3">&nbsp;&nbsp;&nbsp;다형성을 갖는다.</input><br/>
-                <input type="radio" name="java1" value="4">&nbsp;&nbsp;&nbsp;상속성을 갖는다.</input><br/>
-                <input type="radio" name="java1" value="5">&nbsp;&nbsp;&nbsp;인터프리터 언어에만 속한다.</input><br/>
-                <div class="questionResult" id="javaWrap1">
-                  <span id="javaRes1"></span><br/> 
-                  <span id="javaDesc1"></span>
+              <h4>1. 다음 설명에 해당하는 것은?</h4>
+              <br/>
+              <div class="card">
+                <div class="card-body">
+                  <li>프로세스가 자원을 얻지 못해서 다음 처리를 진행하지 못하는 상태이다.</li> <br> 
+                  <li>시스템적으로 한정된 자원을 여러 곳에서 사용하려고 할 때 발생한다.</li> <br>
+                  <li>발생하기 위한 조건이 존재하며 이중 하나라도 만족되지 않으면 이 상황이 발생하지 않는다.</li>
                 </div>
-                <input type="button" id="java1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 1)";></input>
-                <input type="button" id="java1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 1)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs1" rows="3"></textarea>
+                <div class="questionResult" id="csWrap1">
+                  <span id="csRes1"></span><br/> 
+                  <span id="csDesc1"></span>
+                </div>
+                <input type="button" id="cs1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 1)";></input>
+                <input type="button" id="cs1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 1)";></input>
 
               <hr>
-              <h4>2번. 다음 중 JVM의 동작 순서로 올바른 것은?</h4>
+              <h4>2. 다음 설명에 해당하는 페이지 교체 알고리즘은?</h4>
               <hr>
-                <input type="radio" name="java2" value="1">&nbsp;&nbsp;&nbsp;소스 코드 - 바이트 코드 - 클래스 로더 - JVM 메모리 - Excecution Engine</input><br/>
-                <input type="radio" name="java2" value="2">&nbsp;&nbsp;&nbsp;바이트 코드 - 소스 코드 - JVM 메모리 - 클래스 로더 - Excecution Engine</input><br/>
-                <input type="radio" name="java2" value="3">&nbsp;&nbsp;&nbsp;Excecution Engine - 소스 코드 - 바이트 코드 - 클래스 로더 - JVM 메모리</input><br/>
-                <input type="radio" name="java2" value="4">&nbsp;&nbsp;&nbsp;Excecution Engine - 바이트 코드 - 소스 코드 - 클래스 로더 - JVM 메모리</input><br/>
-                <input type="radio" name="java2" value="5">&nbsp;&nbsp;&nbsp;소스 코드 - 바이트 코드 - Excecution Engine - 클래스 로더 - JVM 메모리</input><br/>
-                <div class="questionResult" id="javaWrap2">
-                  <span id="javaRes2"></span><br/> 
-                  <span id="javaDesc2"></span>
+              <div class="card">
+                <div class="card-body">
+                  <li>최근에 사용하지 않은 페이지를 가장 먼저 내보내는 알고리즘</li> <br> 
+                  <li>사용하지 않은 페이지는 앞으로도 사용하지 않을 확률이 높다.</li> <br>
+                  <li>실제로 사용할 수 있는 페이지 교체 알고리즘 중에서 가장 좋은 방법 중의 하나이다.</li>
                 </div>
-                <input type="button" id="java2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 2)";></input>
-                <input type="button" id="java2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 2)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs2" rows="3" placeholder="OOO 알고리즘"></textarea>
+                <div class="questionResult" id="csWrap2">
+                  <span id="csRes2"></span><br/> 
+                  <span id="csDesc2"></span>
+                </div>
+                <input type="button" id="cs2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 2)";></input>
+                <input type="button" id="cs2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 2)";></input>
 
               <hr>
-                <h4>3번. 다음 중 가비지 컬렉션과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
+                <h4>3. 다음 설명에 해당하는 CPU 스케줄링 알고리즘은?</h4>
               <hr>
-                <input type="radio" name="java3" value="1">&nbsp;&nbsp;&nbsp;Weak Generational Hypothesis</input><br/>
-                <input type="radio" name="java3" value="2">&nbsp;&nbsp;&nbsp;Search & Remove unreferenced object</input><br/>
-                <input type="radio" name="java3" value="3">&nbsp;&nbsp;&nbsp;Paging</input><br/>
-                <input type="radio" name="java3" value="4">&nbsp;&nbsp;&nbsp;Compacting</input><br/>
-                <input type="radio" name="java3" value="5">&nbsp;&nbsp;&nbsp;Heap Memory</input><br/>
-                <div class="questionResult" id="javaWrap3">
-                  <span id="javaRes3"></span><br/> 
-                  <span id="javaDesc3"></span>
+              <div class="card">
+                <div class="card-body">
+                  <li>각 프로세스에게 일정한 시간의 Time Quantum 만큼 CPU를 할당해주고, 각 프로세스는 돌아가며 주어진 시간동안 작업을 수행한다.</li> <br> 
+                  <li>Time Quantum이 너무 크면 FCFS 방식과 같아지고, 너무 작으면 Context Switching이 자주 발생하여 오버헤드가 증가한다.</li> <br>
+                  <li>CPU 스케줄링 외에도 다양한 스케줄링 방식에 적용될 수 있는 개념이다.</li>
                 </div>
-                <input type="button" id="java3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 3)";></input>
-                <input type="button" id="java3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 3)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs3" rows="3" placeholder="OOO 알고리즘"></textarea>
+                <div class="questionResult" id="csWrap3">
+                  <span id="csRes3"></span><br/> 
+                  <span id="csDesc3"></span>
+                </div>
+                <input type="button" id="cs3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 3)";></input>
+                <input type="button" id="cs3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 3)";></input>
 
               <hr>
-                <h4>4번. 다음 중 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
+                <h4>4. 다음 설명에 해당하는 용어의 이름은?</h4>
               <hr>
-                <input type="radio" name="java4" value="1">&nbsp;&nbsp;&nbsp;에러와 예외는 Throwable 클래스를 상속받는다.</input><br/>
-                <input type="radio" name="java4" value="2">&nbsp;&nbsp;&nbsp;예외는 프로그래머가 해결할 수 있다.</input><br/>
-                <input type="radio" name="java4" value="3">&nbsp;&nbsp;&nbsp;스레드는 이용해 여러 개의 Call Stack을 번갈아가며 작업을 수행한다.</input><br/>
-                <input type="radio" name="java4" value="4">&nbsp;&nbsp;&nbsp;예외 처리를 하지 않아도 항상 컴파일이 된다.</input><br/>
-                <input type="radio" name="java4" value="5">&nbsp;&nbsp;&nbsp;Single-Thread 환경에서 문자열 처리는 StringBuilder가 유리하다.</input><br/>
-                <div class="questionResult" id="javaWrap4">
-                  <span id="javaRes4"></span><br/> 
-                  <span id="javaDesc4"></span>
+              <div class="card">
+                <div class="card-body">
+                  <li>데이터베이스의 상태를 변화시키기 위해 수행하는 하나의 논리적 작업 단위이다. </li> <br> 
+                  <li>ACID 특징을 갖는다.</li> <br>
+                  <li>OOOO 의 성공 여부로 Commit 또는 Rollback을 수행한다.</li>
                 </div>
-                <input type="button" id="java4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 4)";></input>
-                <input type="button" id="java4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 4)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="cs4" rows="3"></textarea>
+                <div class="questionResult" id="csWrap4">
+                  <span id="csRes4"></span><br/> 
+                  <span id="csDesc4"></span>
+                </div>
+                <input type="button" id="cs4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('cs', 4)";></input>
+                <input type="button" id="cs4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('cs', 4)";></input>
                 
                 <hr>
                 <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>

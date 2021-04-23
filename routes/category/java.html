@@ -14,18 +14,18 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
-  <link href="../../css/hyunsu_stylesheet.css" rel="stylesheet">
-  <script src="../../js/question.js"></script>
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
 
   <!-- Include html files -->
   <script>
     $(document).ready(() => {
-      $("#nav").load("../component/navigator.html");
-      $("#sidebar").load("../component/sidebar.html");
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
     });
   </script>
 
@@ -50,7 +50,7 @@
         </div>
             <hr>
             <div class="question">
-                <h4>1번. 다음 중 Java 의 특징이 <span style="text-decoration: underline;">아닌</span> 것은?</h4>
+                <h4>1. 다음 중 Java 의 특징이 <span style="text-decoration: underline;">아닌</span> 것은?</h4>
                 <hr>
                   <input type="radio" name="java1" value="1" >&nbsp;&nbsp;&nbsp;Call By Reference이다.</input><br/>
                   <input type="radio" name="java1" value="2">&nbsp;&nbsp;&nbsp;캐스팅할 수 있다.</input><br/>
@@ -63,9 +63,8 @@
                   </div>
                   <input type="button" id="java1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 1)";></input>
                   <input type="button" id="java1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 1)";></input>
-
                 <hr>
-                <h4>2번. 다음 중 JVM의 동작 순서로 올바른 것은?</h4>
+                <h4>2. 다음 중 JVM의 동작 순서로 올바른 것은?</h4>
                 <hr>
                   <input type="radio" name="java2" value="1">&nbsp;&nbsp;&nbsp;소스 코드 - 바이트 코드 - 클래스 로더 - JVM 메모리 - Excecution Engine</input><br/>
                   <input type="radio" name="java2" value="2">&nbsp;&nbsp;&nbsp;바이트 코드 - 소스 코드 - JVM 메모리 - 클래스 로더 - Excecution Engine</input><br/>
@@ -80,7 +79,7 @@
                   <input type="button" id="java2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 2)";></input>
 
                 <hr>
-                  <h4>3번. 다음 중 가비지 컬렉션과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
+                  <h4>3. 다음 중 가비지 컬렉션과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
                 <hr>
                   <input type="radio" name="java3" value="1">&nbsp;&nbsp;&nbsp;Weak Generational Hypothesis</input><br/>
                   <input type="radio" name="java3" value="2">&nbsp;&nbsp;&nbsp;Search & Remove unreferenced object</input><br/>
@@ -95,7 +94,7 @@
                   <input type="button" id="java3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 3)";></input>
 
                 <hr>
-                  <h4>4번. 다음 중 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
+                  <h4>4. 다음 중 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
                 <hr>
                   <input type="radio" name="java4" value="1">&nbsp;&nbsp;&nbsp;에러와 예외는 Throwable 클래스를 상속받는다.</input><br/>
                   <input type="radio" name="java4" value="2">&nbsp;&nbsp;&nbsp;예외는 프로그래머가 해결할 수 있다.</input><br/>
@@ -123,8 +122,8 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>

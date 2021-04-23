@@ -14,18 +14,18 @@
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../css/simple-sidebar.css" rel="stylesheet">
-  <link href="../../css/hyunsu_stylesheet.css" rel="stylesheet">
-  <script src="../../js/question.js"></script>
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/hyunsu_stylesheet.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
 
   <!-- Include html files -->
   <script>
     $(document).ready(() => {
-      $("#nav").load("../component/navigator.html");
-      $("#sidebar").load("../component/sidebar.html");
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
     });
   </script>
 
@@ -50,64 +50,70 @@
         </div>
             <hr>
             <div class="question">
-              <h4>1번. 다음 중 Java 의 특징이 <span style="text-decoration: underline;">아닌</span> 것은?</h4>
+              <h4>1. 다음의 설명에 해당하는 알고리즘은?</h4>
               <hr>
-                <input type="radio" name="java1" value="1" >&nbsp;&nbsp;&nbsp;Call By Reference이다.</input><br/>
-                <input type="radio" name="java1" value="2">&nbsp;&nbsp;&nbsp;캐스팅할 수 있다.</input><br/>
-                <input type="radio" name="java1" value="3">&nbsp;&nbsp;&nbsp;다형성을 갖는다.</input><br/>
-                <input type="radio" name="java1" value="4">&nbsp;&nbsp;&nbsp;상속성을 갖는다.</input><br/>
-                <input type="radio" name="java1" value="5">&nbsp;&nbsp;&nbsp;인터프리터 언어에만 속한다.</input><br/>
-                <div class="questionResult" id="javaWrap1">
-                  <span id="javaRes1"></span><br/> 
-                  <span id="javaDesc1"></span>
+              <div class="card">
+                <div class="card-body">
+                  <li>그래프에서 노드 간 최단경로를 구하는 알고리즘이다.</li> <br> 
+                  <li>음의 간선이 없을 때 정상적으로 동작한다.</li> <br>
+                  <li>방문하지 않은 노드 중 최단 거리가 가장 짧은 노드를 선택한다.</li> <br>
+                  <li>해당 노드를 거쳐서 다른 노드로 가는 비용을 계산해 최단거리 테이블을 갱신한다.</li> <br>
+                  <li>if(distance[now] < dist) continue;</li>
                 </div>
-                <input type="button" id="java1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 1)";></input>
-                <input type="button" id="java1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 1)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="ps1" rows="3"></textarea>
+                <div class="questionResult" id="psWrap1">
+                  <span id="psRes1"></span><br/> 
+                  <span id="psDesc1"></span>
+                </div>
+                <input type="button" id="ps1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 1)";></input>
+                <input type="button" id="ps1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 1)";></input>
 
               <hr>
-              <h4>2번. 다음 중 JVM의 동작 순서로 올바른 것은?</h4>
+              <h4>2. 1번 알고리즘의 시간복잡도는?</h4>
               <hr>
-                <input type="radio" name="java2" value="1">&nbsp;&nbsp;&nbsp;소스 코드 - 바이트 코드 - 클래스 로더 - JVM 메모리 - Excecution Engine</input><br/>
-                <input type="radio" name="java2" value="2">&nbsp;&nbsp;&nbsp;바이트 코드 - 소스 코드 - JVM 메모리 - 클래스 로더 - Excecution Engine</input><br/>
-                <input type="radio" name="java2" value="3">&nbsp;&nbsp;&nbsp;Excecution Engine - 소스 코드 - 바이트 코드 - 클래스 로더 - JVM 메모리</input><br/>
-                <input type="radio" name="java2" value="4">&nbsp;&nbsp;&nbsp;Excecution Engine - 바이트 코드 - 소스 코드 - 클래스 로더 - JVM 메모리</input><br/>
-                <input type="radio" name="java2" value="5">&nbsp;&nbsp;&nbsp;소스 코드 - 바이트 코드 - Excecution Engine - 클래스 로더 - JVM 메모리</input><br/>
-                <div class="questionResult" id="javaWrap2">
-                  <span id="javaRes2"></span><br/> 
-                  <span id="javaDesc2"></span>
+              <textarea class="form-control" id="ps2" rows="3" placeholder="O(  ) 안의 수식을 입력, 정점의 개수 V, 간선의 개수 E"></textarea>
+                <div class="questionResult" id="psWrap2">
+                  <span id="psRes2"></span><br/> 
+                  <span id="psDesc2"></span>
                 </div>
-                <input type="button" id="java2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 2)";></input>
-                <input type="button" id="java2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 2)";></input>
+                <input type="button" id="ps2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 2)";></input>
+                <input type="button" id="ps2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 2)";></input>
 
               <hr>
-                <h4>3번. 다음 중 가비지 컬렉션과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
+                <h4>3. 다음의 설명에 해당하는 알고리즘은?</h4>
               <hr>
-                <input type="radio" name="java3" value="1">&nbsp;&nbsp;&nbsp;Weak Generational Hypothesis</input><br/>
-                <input type="radio" name="java3" value="2">&nbsp;&nbsp;&nbsp;Search & Remove unreferenced object</input><br/>
-                <input type="radio" name="java3" value="3">&nbsp;&nbsp;&nbsp;Paging</input><br/>
-                <input type="radio" name="java3" value="4">&nbsp;&nbsp;&nbsp;Compacting</input><br/>
-                <input type="radio" name="java3" value="5">&nbsp;&nbsp;&nbsp;Heap Memory</input><br/>
-                <div class="questionResult" id="javaWrap3">
-                  <span id="javaRes3"></span><br/> 
-                  <span id="javaDesc3"></span>
+              <div class="card">
+                <div class="card-body">
+                  <li>방향 그래프의 모든 노드를 방향성에 거스르지 않도록 순서대로 나열한다.</li> <br> 
+                  <li>각 노드로 들어오는 간선의 개수인 진입차수가 0인 노드를 큐에 넣는다.</li> <br>
+                  <li>큐가 빌 때 까지 큐에서 원소를 꺼내 해당 노드에서 출발하는 간선을 그래프에서 제거한다.</li> <br>
+                  <li>새롭게 진입 차수가 0이 된 노드를 큐에 넣는다.</li> <br>
+                  <li>큐에서 빠져나간 순서가 구하고자 하는 결과가 되며, 중복 답안이 존재할 수 있다.</li>
                 </div>
-                <input type="button" id="java3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 3)";></input>
-                <input type="button" id="java3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 3)";></input>
+              </div>
+                  
+              <hr>
+              <textarea class="form-control" id="ps3" rows="3"></textarea>
+                <div class="questionResult" id="psWrap3">
+                  <span id="psRes3"></span><br/> 
+                  <span id="psDesc3"></span>
+                </div>
+                <input type="button" id="ps3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 3)";></input>
+                <input type="button" id="ps3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 3)";></input>
 
               <hr>
-                <h4>4번. 다음 중 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
+                <h4>4. 3번 알고리즘의 시간복잡도는?</h4>
               <hr>
-                <input type="radio" name="java4" value="1">&nbsp;&nbsp;&nbsp;에러와 예외는 Throwable 클래스를 상속받는다.</input><br/>
-                <input type="radio" name="java4" value="2">&nbsp;&nbsp;&nbsp;예외는 프로그래머가 해결할 수 있다.</input><br/>
-                <input type="radio" name="java4" value="3">&nbsp;&nbsp;&nbsp;스레드는 이용해 여러 개의 Call Stack을 번갈아가며 작업을 수행한다.</input><br/>
-                <input type="radio" name="java4" value="4">&nbsp;&nbsp;&nbsp;예외 처리를 하지 않아도 항상 컴파일이 된다.</input><br/>
-                <input type="radio" name="java4" value="5">&nbsp;&nbsp;&nbsp;Single-Thread 환경에서 문자열 처리는 StringBuilder가 유리하다.</input><br/>
-                <div class="questionResult" id="javaWrap4">
-                  <span id="javaRes4"></span><br/> 
-                  <span id="javaDesc4"></span>
+              <textarea class="form-control" id="ps4" rows="3" placeholder="O(  ) 안의 수식을 입력, 정점의 개수 V, 간선의 개수 E"></textarea>
+                <div class="questionResult" id="psWrap4">
+                  <span id="psRes4"></span><br/> 
+                  <span id="psDesc4"></span>
                 </div>
-                <input type="button" id="java4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 4)";></input>
-                <input type="button" id="java4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 4)";></input>
+                <input type="button" id="ps4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="descriptiveAnswer('ps', 4)";></input>
+                <input type="button" id="ps4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('ps', 4)";></input>
                 
                 <hr>
                 <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>
@@ -123,8 +129,8 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
