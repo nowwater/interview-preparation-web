@@ -10,6 +10,9 @@
 
   <title>면접 준비 웹사이트_고급웹프로그래밍</title>
 
+  <!-- JQuery -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
   <!-- Bootstrap core CSS -->
   <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -17,6 +20,14 @@
   <link href="../../css/simple-sidebar.css" rel="stylesheet">
   <link href="../../css/hyunsu_stylesheet.css" rel="stylesheet">
   <script src="../../js/question.js"></script>
+
+  
+
+  <script>
+    $(document).ready(() => {
+      $("#nav").load("../component/navigator.html");
+    });
+  </script>
 </head>
 
 <body>
@@ -37,39 +48,11 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.nowwatersblog.com">블로그</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                더 보기
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">순위 보기</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">제작자 정보</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div id="nav"></div>
 
       <div class="container-fluid">
         <div class="alert alert-info" >
-          <span style="font-size: 50px;">Java</span>
-          <strong>에 관련된 면접 문제입니다.</strong>
+          <span style="font-size: 40px;">Java</span>
         </div>
             <hr>
             <div class="question">
@@ -84,8 +67,8 @@
                     <span id="javaRes1"></span><br/> 
                     <span id="javaDesc1"></span>
                   </div>
-                  <input type="button" id="java1_show" value="결과 보기" style="display: block" onclick="showAnswer('java', 1)";></input>
-                  <input type="button" id="java1_hide" value="결과 숨기기" style="display:none" onclick="hideAnswer('java', 1)";></input>
+                  <input type="button" id="java1_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 1)";></input>
+                  <input type="button" id="java1_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 1)";></input>
 
                 <hr>
                 <h4>2번. 다음 중 JVM의 동작 순서로 올바른 것은?</h4>
@@ -99,8 +82,8 @@
                     <span id="javaRes2"></span><br/> 
                     <span id="javaDesc2"></span>
                   </div>
-                  <input type="button" id="java2_show" value="결과 보기" style="display: block" onclick="showAnswer('java', 2)";></input>
-                  <input type="button" id="java2_hide" value="결과 숨기기" style="display:none" onclick="hideAnswer('java', 2)";></input>
+                  <input type="button" id="java2_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 2)";></input>
+                  <input type="button" id="java2_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 2)";></input>
 
                 <hr>
                   <h4>3번. 다음 중 가비지 컬렉션과 상관이 <span style="text-decoration: underline;">없는</span> 것은?</h4>
@@ -114,8 +97,8 @@
                     <span id="javaRes3"></span><br/> 
                     <span id="javaDesc3"></span>
                   </div>
-                  <input type="button" id="java3_show" value="결과 보기" style="display: block" onclick="showAnswer('java', 3)";></input>
-                  <input type="button" id="java3_hide" value="결과 숨기기" style="display:none" onclick="hideAnswer('java', 3)";></input>
+                  <input type="button" id="java3_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 3)";></input>
+                  <input type="button" id="java3_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 3)";></input>
 
                 <hr>
                   <h4>4번. 다음 중 설명이 올바르지 <span style="text-decoration: underline;">않은</span> 것은?</h4>
@@ -129,13 +112,13 @@
                     <span id="javaRes4"></span><br/> 
                     <span id="javaDesc4"></span>
                   </div>
-                  <input type="button" id="java4_show" value="결과 보기" style="display: block" onclick="showAnswer('java', 4)";></input>
-                  <input type="button" id="java4_hide" value="결과 숨기기" style="display:none" onclick="hideAnswer('java', 4)";></input>
+                  <input type="button" id="java4_show" value="결과 보기" class="btn btn-outline-info" style="display: block" onclick="showAnswer('java', 4)";></input>
+                  <input type="button" id="java4_hide" value="결과 숨기기" class="btn btn-outline-info" style="display:none" onclick="hideAnswer('java', 4)";></input>
                   
                   <hr>
-                  <input type="button" value="초기화" onclick="location.reload();"/>
+                  <input type="button"class="btn btn-info" value="초기화" onclick="location.reload();"/>
                 <br>
-                <a href="#" style="margin-left: 360px;"><input type="button" value="맨 위로 올라가기"/></a>
+                <a href="#" style="margin-left: 360px;"><input type="button" class="btn btn-primary btn-lg btn-block" value="맨 위로 올라가기"/></a>
                 <br>
             </div>
       </div>
