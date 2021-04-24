@@ -112,6 +112,12 @@ init();
 function init(){
     n = 4;
 
+    for(var i=0; i<n; ++i){
+        for(var j=0; j<n; ++j){
+            board[i][j] = 0;
+        }
+    }
+
     /* 점수 초기화 */
     score = 0;
     
@@ -230,8 +236,7 @@ function move(direction){
     }
 
     if(moved) addNewNumber(movedBoard);
-    else gameOver();
-    console.log(movedBoard);
+    else checkGameOver();
     cover();
 }
 
@@ -259,8 +264,28 @@ function addNewNumber(movedBoard){
     }
 }
 
-function gameOver(){
-    console.log("종료");
+/* 게임을 더 진행할 수 있는지 확인 */
+function checkGameOver(){
+    for(var i=0;i<4;i++){
+        var colCheck = board[i][0];
+        if(colCheck==0) return;
+        for(var j=1;j<4;j++){
+            if(board[i][j]==colCheck || board[i][j]==0) return;
+            else colCheck = board[i][j];
+        }
+    }
+    for(var i=0;i<4;i++){
+        var rowCheck = board[0][i];
+        if(rowCheck==0) return;
+        for(var j=1;j<4;j++){
+            if(board[j][i]==rowCheck || board[j][i]==0) return;
+            else rowCheck = board[j][i];
+        }
+    }
+
+    /* 더 이상 진행할 수 없으면 게임 종료 */
+    alert("[Game Over]\n 당신의 최종 점수는 " + score + "점 입니다 !!");
+    init();
 }
 
 /* 2 or 4 의 숫자카드를 랜덤으로 생성하는 함수 */
