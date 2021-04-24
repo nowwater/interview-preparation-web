@@ -11,10 +11,17 @@
   <title>면접 준비 웹사이트_고급웹프로그래밍</title>
 
   <!-- JQuery -->
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- 부가적인 테마 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="/css/simple-sidebar.css" rel="stylesheet">
@@ -53,9 +60,9 @@
       <div class="container-fluid">
         <h2 class="mt-4">환영합니다</h1>
           <hr>
-        <p>
-          좌즉 사이드바에서 면접 주제를 선택할 수 있습니다.
-        </p>
+          <p>
+            좌즉 사이드바에서 면접 주제를 선택할 수 있습니다.
+          </p>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -69,10 +76,11 @@
 
   <!-- Menu Toggle Script -->
   <script>
-    $("#menu-toggle").click(function(e) {
+    $("#menu-toggle").click(function (e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
   </script>
 </body>
+
 </html>
