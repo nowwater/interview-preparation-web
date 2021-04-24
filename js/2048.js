@@ -110,9 +110,6 @@ init();
 
 /* 초기 설정 세팅하는 함수 */
 function init(){
-    // TODO : 보드판 크기를 뷰에서도 동적으로 만들어줘야함
-    /* 보드판 크기 설정 가능 */
-    //n = prompt("게임 보드의 크기를 선택하세요"); 
     n = 4;
 
     /* 점수 초기화 */
@@ -156,6 +153,7 @@ function paintColor(element){
     element.style.background = colors[value].background;
 }
 
+/* 테이블의 숫자카드 입력 방향에 따라 이동 + 같은 숫자면 결합 */
 function move(direction){
     let borderNum = [[], [], [], []];
     var movedBoard = Array(Array(0,0,0,0),Array(0,0,0,0),Array(0,0,0,0),Array(0,0,0,0));
@@ -238,28 +236,25 @@ function move(direction){
 }
 
 function addNewNumber(movedBoard){
-    let zero = 0;
-    board.forEach(value => {
-        if(value == 0){
-            zero += 1;
-        }
-    });
+    // let zero = 0;
+    // board.forEach(value => {
+    //     if(value == 0){
+    //         zero += 1;
+    //     }
+    // });
     while(true){
-        for(var i=0; i<n; ++i){
-            for(var j=0; j<n; ++j){
-                if(board[i][j] == 0){
-                    var rand = parseInt(Math.random() * zero);
-                    if(rand == 0){
-                        movedBoard[i][j] = generate();
-                        for(var i=0; i<n; ++i){
-                            for(var j=0; j<n; ++j){
-                                board[i][j] = movedBoard[i][j];
-                            }
-                        }
-                        return;
-                    }
-                }
-            }
+        var rand = parseInt(Math.random() * (n * n)); // 0~15 숫자 생성
+        var row = parseInt(rand / n);
+        var col = parseInt(rand % n);
+        /* 랜덤 확률 50:50 으로 2와 4를 생성 */
+        if(movedBoard[row][col] == 0){
+            movedBoard[row][col] = generate();
+            break;
+        }
+    }
+    for(var i=0; i<n; ++i){
+        for(var j=0; j<n; ++j){
+            board[i][j] = movedBoard[i][j];
         }
     }
 }
