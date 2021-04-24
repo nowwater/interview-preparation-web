@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>면접 준비 웹사이트_고급웹프로그래밍</title>
+
+  <!-- JQuery -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Style for 2048 Game -->
+  <link rel="stylesheet" type="text/css" href="/css/2048.css">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/css/2048.css" rel="stylesheet">
+  <script src="/js/question.js"></script>
+
+  <!-- Include html files -->
+  <script>
+    $(document).ready(() => {
+      $("#nav").load("/routes/component/navigator.html");
+      $("#sidebar").load("/routes/component/sidebar.html");
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <!-- Navigation -->
+      <div id="nav"></div>
+
+      <div class="container-fluid">
+        <div class="alert alert-primary">
+          <span style="font-size: 40px;">Game</span>
+        </div>
+        <hr>
+        <table id="titleBar" border=0>
+          <tr>
+            <td id="titlePad">
+              <p id="title">2048</p>
+            </td>
+            <td id="scorePad">
+              <p id="scoreType">Score</p>
+              <p id="score"></p>
+          </tr>
+        </table>
+        <table id="board" border=0>
+          <tr>
+            <td id="00"></td>
+            <td id="01"></td>
+            <td id="02"></td>
+            <td id="03"></td>
+          </tr>
+          <tr>
+            <td id="10"></td>
+            <td id="11"></td>
+            <td id="12"></td>
+            <td id="13"></td>
+          </tr>
+          <tr>
+            <td id="20"></td>
+            <td id="21"></td>
+            <td id="22"></td>
+            <td id="23"></td>
+          </tr>
+          <tr>
+            <td id="30"></td>
+            <td id="31"></td>
+            <td id="32"></td>
+            <td id="33"></td>
+          </tr>
+        </table>
+        <p id="info">2048 Copyright (c) 2016115613_권현수 All rights reserved.</p>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- 2048 Game Logic -->
+  <script type="text/javascript" src="/js/2048.js"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
